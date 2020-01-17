@@ -49,6 +49,7 @@ class RootModuleManager: ModuleManager<RootBuilder> {
     override func handleEvent(_ event: RootModuleEvent) {
         switch event {
         case .showSeasonDetail:
+            // call other module
             let vc = UIViewController()
             vc.view.backgroundColor = .secondarySystemBackground
             rootViewController.present(vc, animated: true)

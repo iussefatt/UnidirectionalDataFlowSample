@@ -9,33 +9,32 @@
 import Alamofire
 
 enum SampleTargetType: TargetType {
-    case competition(id: Int)
+    
+    case users
     
     var url: URL {
-        URL(string: "https://api.football-data.org/v2/")!
+        URL(string: "https://jsonplaceholder.typicode.com/")!
     }
     
     var path: String {
         switch self {
-        case .competition(let id):
-            return "competitions/\(id)"
+        case .users:
+            return "users"
         }
     }
     
-    var headers: HTTPHeaders? {
-        ["X-Auth-Token": "42cc186fe7334a6ca9a2d70ecd394120"]
-    }
+    var headers: HTTPHeaders? { nil }
     
     var method: HTTPMethod {
         switch self {
-        case .competition:
+        case .users:
             return .get
         }
     }
     
     var task: TargetTypeTask {
         switch self {
-        case .competition:
+        case .users:
             return TargetTypeTask(parameters: nil, enconding: URLEncoding.default)
         }
     }

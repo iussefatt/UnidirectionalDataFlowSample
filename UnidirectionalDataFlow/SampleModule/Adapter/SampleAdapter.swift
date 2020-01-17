@@ -14,17 +14,11 @@ extension ObservableConvertibleType where Element == SampleState {
     func mapToSections() -> Driver<[SampleSection]> {
         asObservable().map { state in
             switch state {
-            case .success(let seasons):
-                let items = seasons.map { season -> SampleSectionItem in
-                    let model = SampleSectionItemSeasonModel(
-                        year: "\(season.startDate)/\(season.endDate))",
-                        winnerName: season.winner?.name ?? "",
-                        winnerCrewURL: season.winner?.crestURL,
-                        isCurrent: false
-                    )
-                    return .season(model)
+            case .success(let users):
+                let items = users.map { user -> SampleSectionItem in
+                    .user(UserSectionItemModel(id: "\(user.id)", name: user.name))
                 }
-                return [SampleSection(title: "Seasons", items: items)]
+                return [SampleSection(title: "Users", items: items)]
             
             default:
                 return []

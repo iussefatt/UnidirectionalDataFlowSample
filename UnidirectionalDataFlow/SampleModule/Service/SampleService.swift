@@ -10,7 +10,7 @@ import RxSwift
 
 protocol SampleServiceProtocol {
     init(provider: RequestProvider<SampleTargetType>)
-    func getPremierLeague() -> Observable<CompetitionResponse>
+    func getUsers() -> Observable<[UserResponse]>
 }
 
 class SampleService: SampleServiceProtocol {
@@ -21,8 +21,9 @@ class SampleService: SampleServiceProtocol {
         self.provider = provider
     }
     
-    func getPremierLeague() -> Observable<CompetitionResponse> {
-        provider.request(.competition(id: 2021))
-            .mapModel(to: CompetitionResponse.self)
+    func getUsers() -> Observable<[UserResponse]> {
+        provider.request(.users)
+            .cast(to: [Any].self)
+            .mapModel(to: UserResponse.self, throwsOnSingleFail: false)
     }
 }

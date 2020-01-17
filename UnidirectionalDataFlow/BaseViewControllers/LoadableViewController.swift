@@ -16,4 +16,10 @@ class LoadableViewController<CustomView: UIView>: UIViewController {
         view.addSubview(containerView)
         containerView.snp.makeConstraints { $0.edges.equalToSuperview() }
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        containerView.backgroundColor = .systemBackground
+        /// don't call `prepareCustomView` to allow each subclass to choose if gonna use or not
+    }
 }

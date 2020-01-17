@@ -49,6 +49,7 @@ class RxBaseViewController<ViewModel: ViewModelProtocol, CustomView: UIView>: Lo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         createBindings()
     }
 }
