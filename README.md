@@ -23,3 +23,11 @@ This is the place of every bussiness logic happens, like requests, for example.
 ## Reducer
 
 Takes the `Mutation` and the current `State` then reduce them into a new `State`.
+
+## Module manager
+
+Nothing but a coordinator
+
+## Module builder
+
+Responsible for instantiante  every view controller and it's dependencies (view model, service, etc).
