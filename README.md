@@ -9,6 +9,10 @@ Also, it's more testable since almost every function where bussiness logic lives
 
 The view representation. It contains also visual data.
 
+### Adapter
+
+Somethimes we need to represent a collection of data. So, adapter responsibility is to transform state data into section items, something that both table and collection view understands.
+
 ## Action
 
 Every action comming from the view, it can be any interaction, like a button tap or an initial loading, for example.
