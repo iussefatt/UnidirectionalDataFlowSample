@@ -9,7 +9,7 @@ Also, it's more testable since almost every function where bussiness logic lives
 
 The view representation. It contains also visual data.
 
-### Adapter
+## Adapter
 
 Somethimes we need to represent a collection of data. So, adapter responsibility is to transform state data into section items, something that both table and collection view understands.
 
